@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 import environ
 env = environ.Env()
@@ -25,10 +26,10 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 55242880
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--lvduegce#tk^&m^yp9s_1n^5jjliu^!1&59xhs%5ek$ru!fv5'
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 

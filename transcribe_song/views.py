@@ -12,18 +12,19 @@ POST_URL = 'https://orbital-backend-production.up.railway.app/songs/uploadTransc
 @csrf_exempt
 @require_POST
 def transcribe_song(request):
+    # Get the base64 encoded audio data from the request
+    base64_data = request.POST.get('base64_data')
+    song_id = request.POST.get('song_id')
     try:
-        # Get the base64 encoded audio data from the request
-        base64_data = request.POST.get('base64_data')
-        song_id = request.POST.get('song_id')
         # Perform transcription
         transcription = transcribe_b64(base64_data)
-
         # send POST to server to uplaod transcription
         result = {'transcription': transcription, 'song_id': song_id}
-        requests.post(POST_URL, json = result)
+        # print(requests.post(POST_URL, json = result))
         # Return the transcription as JSON response
         return JsonResponse(result)
-
     except Exception as e:
+        # result = {'transcription': "", 'song_id': song_id}
+        # requests.post(POST_URL, json = result)
+        # return JsonResponse(result)
         return JsonResponse({'error': str(e)}, status=400)

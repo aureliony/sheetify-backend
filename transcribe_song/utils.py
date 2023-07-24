@@ -21,6 +21,7 @@ def transcribe_b64(file_content, difficulty = 3):
             return base64.b64encode(f.read()).decode("ascii")
     except Exception as e:
         print(str(e))
+        return base64.b64encode(b"").decode("ascii")
 
 def transcribe(file, difficulty = 3):
     """

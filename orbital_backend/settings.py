@@ -33,7 +33,36 @@ SECRET_KEY = get_random_secret_key()
 # DEBUG = 'RENDER' not in os.environ
 DEBUG = False
 
-ALLOWED_HOSTS = ['175.156.126.147']
+CORS_ALLOWED_ORIGINS = [
+    'https://orbital-backend-production.up.railway.app',
+    'https://sheetify-frontend.web.app'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://orbital-backend-production.up.railway.app',
+    'https://sheetify-frontend.web.app'
+]
+
+ALLOWED_HOSTS = ['175.156.126.147','orbital-backend-production.up.railway.app',
+    'sheetify-frontend.web.app']
+
+CORS_ORIGIN_WHITELIST = [
+    'https://orbital-backend-production.up.railway.app',
+    'https://sheetify-frontend.web.app'
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'Content-Type',
+    'X-CSRFToken',
+    'Authorization',
+    'Access-Control-Allow-Origin'
+]
+
+CSRF_COOKIE_HTTPONLY = False
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -119,7 +148,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Singapore'
 
 USE_I18N = True
 

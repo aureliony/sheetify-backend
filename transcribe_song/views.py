@@ -20,7 +20,7 @@ def transcribe_song(request):
         transcription = transcribe_b64(base64_data)
 
         # send POST to server to uplaod transcription
-        result = {'transcription': transcription, 'song_id':69}
+        result = {'transcription': transcription, 'song_id': song_id}
         requests.post(POST_URL, json = result)
         # Return the transcription as JSON response
         return JsonResponse(result)

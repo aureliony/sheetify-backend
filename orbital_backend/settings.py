@@ -33,7 +33,7 @@ SECRET_KEY = get_random_secret_key()
 # DEBUG = 'RENDER' not in os.environ
 DEBUG = False
 
-ALLOWED_HOSTS = ['13.229.180.107']
+ALLOWED_HOSTS = ['54.169.134.65']
 
 # Application definition
 

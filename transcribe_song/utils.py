@@ -21,7 +21,9 @@ def transcribe_b64(file_content, difficulty = 3):
             return base64.b64encode(f.read()).decode("ascii")
     except Exception as e:
         print(str(e))
-        return base64.b64encode(b"").decode("ascii")
+        # return empty midi file (with valid signature)
+        with open("empty.mid", "rb") as f:
+            return base64.b64encode(f.read()).decode("ascii")
 
 def transcribe(file, difficulty = 3):
     """
